@@ -13,12 +13,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Mobile Dashboard Sidebar Toggle (for 368px and 768px views)
-  const sidebarToggle = document.querySelector(".sidebar-toggle");
+  const dashMenuToggles = document.querySelectorAll(".dash-menu-toggle, .sidebar-toggle");
   const appSidebar = document.querySelector(".app-sidebar");
-  if (sidebarToggle && appSidebar) {
-    sidebarToggle.addEventListener("click", (e) => {
-      e.stopPropagation();
-      appSidebar.classList.toggle("open");
+  if (dashMenuToggles.length > 0 && appSidebar) {
+    dashMenuToggles.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        appSidebar.classList.toggle("open");
+      });
     });
   }
 
@@ -27,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!e.target.closest(".site-header") && !e.target.closest(".app-top")) {
       document.querySelectorAll(".main-nav.open").forEach((nav) => nav.classList.remove("open"));
     }
-    if (appSidebar && appSidebar.classList.contains("open") && !e.target.closest(".app-sidebar") && !e.target.closest(".sidebar-toggle")) {
+    if (appSidebar && appSidebar.classList.contains("open") && !e.target.closest(".app-sidebar") && !e.target.closest(".dash-menu-toggle") && !e.target.closest(".sidebar-toggle")) {
       appSidebar.classList.remove("open");
     }
   });
