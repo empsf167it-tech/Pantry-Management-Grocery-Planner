@@ -3,12 +3,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggleButtons = document.querySelectorAll(".menu-toggle");
   toggleButtons.forEach((toggle) => {
     toggle.addEventListener("click", (e) => {
+      e.preventDefault();
       e.stopPropagation();
-      const header = toggle.closest("header") || document;
+      const header = toggle.closest("header") || toggle.closest(".site-header") || document;
       const nav = header.querySelector(".main-nav") || document.querySelector(".main-nav");
       if (nav) {
         nav.classList.toggle("open");
       }
+    });
+  });
+
+  // Close nav drawer when clicking any link inside main-nav on mobile
+  document.querySelectorAll(".main-nav a").forEach((link) => {
+    link.addEventListener("click", () => {
+      document.querySelectorAll(".main-nav.open").forEach((nav) => nav.classList.remove("open"));
     });
   });
 
@@ -18,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (dashMenuToggles.length > 0 && appSidebar) {
     dashMenuToggles.forEach((btn) => {
       btn.addEventListener("click", (e) => {
+        e.preventDefault();
         e.stopPropagation();
         appSidebar.classList.toggle("open");
       });
@@ -26,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Close nav / sidebar on outside click
   document.addEventListener("click", (e) => {
-    if (!e.target.closest(".site-header") && !e.target.closest(".app-top")) {
+    if (!e.target.closest(".site-header") && !e.target.closest(".menu-toggle") && !e.target.closest(".main-nav")) {
       document.querySelectorAll(".main-nav.open").forEach((nav) => nav.classList.remove("open"));
     }
     if (appSidebar && appSidebar.classList.contains("open") && !e.target.closest(".app-sidebar") && !e.target.closest(".dash-menu-toggle") && !e.target.closest(".sidebar-toggle")) {

@@ -48,9 +48,16 @@ button, input, select {
   font: inherit;
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 .container {
-  width: min(1280px, calc(100% - 48px));
+  width: min(1320px, calc(100% - 48px));
   margin: auto;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Header & Navigation */
@@ -64,6 +71,10 @@ button, input, select {
   position: sticky;
   top: 0;
   z-index: 50;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: visible;
 }
 
 .nav-wrap {
@@ -72,6 +83,8 @@ button, input, select {
   justify-content: space-between;
   gap: 20px;
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .brand {
@@ -201,6 +214,21 @@ button, input, select {
 
 .btn-primary:hover {
   background: #156240;
+  box-shadow: 0 12px 28px rgba(29, 122, 82, 0.32);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--green);
+  border: 2px solid var(--green);
+  box-shadow: 0 4px 14px rgba(29, 122, 82, 0.1);
+}
+
+.btn-outline:hover {
+  background: var(--green);
+  color: #ffffff;
+  border-color: var(--green);
   box-shadow: 0 12px 28px rgba(29, 122, 82, 0.32);
   transform: translateY(-2px);
 }
@@ -1244,16 +1272,17 @@ button, input, select {
 }
 
 .inner-hero h1 {
-  font-size: clamp(48px, 5.5vw, 70px);
-  letter-spacing: -3.8px;
+  font-size: clamp(52px, 6vw, 76px);
+  letter-spacing: -3.5px;
 }
 
 .inner-hero p {
-  font-size: 17px;
-  line-height: 1.75;
-  color: var(--muted);
-  max-width: 580px;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #4e5a53;
+  max-width: 660px;
   margin-top: 25px;
+  font-weight: 500;
 }
 
 .inner-image img {
@@ -1421,23 +1450,25 @@ button, input, select {
 }
 
 .service-card > span {
-  font-size: 10px;
-  color: #9ba39e;
+  font-size: 13px;
+  font-weight: 700;
+  color: #8c9790;
 }
 
 .service-card h3 {
-  font-size: 21px;
-  margin: 7px 0;
+  font-size: 23px;
+  font-weight: 800;
+  margin: 8px 0;
 }
 
 .service-card p {
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.7;
+  font-size: 15px;
+  color: #55635b;
+  line-height: 1.65;
 }
 
 .service-card a {
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 800;
   color: var(--green);
 }
@@ -1469,13 +1500,14 @@ button, input, select {
 
 /* Brand logo positioned directly ABOVE the heading inside form card */
 .auth-form-brand {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 9px;
-  margin-bottom: 22px;
+  margin-bottom: 30px;
   font: 800 24px "Manrope", sans-serif;
   color: var(--ink);
   text-decoration: none;
+  text-align: left;
 }
 
 .auth-shell {
@@ -1559,7 +1591,10 @@ button, input, select {
 
 .auth-form {
   width: min(440px, 100%);
-  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left !important;
 }
 
 .auth-form.left-aligned,
@@ -1567,16 +1602,27 @@ button, input, select {
   text-align: left !important;
 }
 
+.auth-form .eyebrow {
+  display: block;
+  text-align: left !important;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
 .auth-form h2 {
   font-size: 38px;
   letter-spacing: -1.8px;
-  text-align: left;
+  text-align: left !important;
+  margin: 0 0 10px 0;
+  width: 100%;
 }
 
 .muted {
   color: var(--muted);
-  font-size: 14px;
-  text-align: left;
+  font-size: 15px;
+  text-align: left !important;
+  margin: 0 0 24px 0;
+  width: 100%;
 }
 
 .auth-form form {
@@ -1776,38 +1822,38 @@ button, input, select {
 .app-search {
   border: 1px solid var(--line);
   border-radius: 10px;
-  width: 280px;
-  height: 38px;
+  width: 290px;
+  height: 42px;
   display: flex;
   align-items: center;
-  padding: 0 12px;
+  padding: 0 14px;
   gap: 8px;
-  color: #9aa39e;
-  font-size: 12px;
+  color: #89948e;
+  font-size: 14px;
 }
 
 .app-user {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .app-user button {
   border: 0;
   background: none;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .user-avatar {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: #d8e9df;
   color: var(--green);
   display: grid;
   place-items: center;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
 }
 
@@ -1816,23 +1862,23 @@ button, input, select {
 }
 
 .app-user b {
-  font-size: 10px;
+  font-size: 13px;
 }
 
 .app-user small {
-  font-size: 8px;
-  color: #929b96;
+  font-size: 11px;
+  color: #828e88;
 }
 
 .app-user > a {
   margin-left: 6px;
   color: #8b9590;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .app-shell {
   display: grid;
-  grid-template-columns: 230px 1fr;
+  grid-template-columns: 240px 1fr;
   min-height: calc(100vh - 72px);
 }
 
@@ -1851,18 +1897,19 @@ button, input, select {
 }
 
 .sidebar-section > small {
-  font-size: 8px;
+  font-size: 12px;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 1.4px;
-  color: #a2aaa5;
+  letter-spacing: 1.2px;
+  color: #929d97;
   padding: 0 12px 7px;
 }
 
 .sidebar-section a {
   padding: 10px 12px;
   border-radius: 9px;
-  color: #748078;
-  font-size: 11px;
+  color: #5d6961;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -1883,17 +1930,18 @@ button, input, select {
   background: #163127;
   color: #fff;
   border-radius: 14px;
-  padding: 16px;
+  padding: 18px;
 }
 
 .upgrade-card b {
-  font: 700 12px "Manrope", sans-serif;
+  font: 700 14px "Manrope", sans-serif;
 }
 
 .upgrade-card p {
-  font-size: 9px;
+  font-size: 12px;
   color: #b9c7c0;
-  line-height: 1.5;
+  line-height: 1.55;
+  margin: 6px 0 12px;
 }
 
 .upgrade-card button {
@@ -1902,8 +1950,8 @@ button, input, select {
   background: #c4e879;
   color: #183024;
   border-radius: 8px;
-  padding: 8px;
-  font-size: 9px;
+  padding: 10px;
+  font-size: 12px;
   font-weight: 800;
   cursor: pointer;
 }
@@ -1935,8 +1983,8 @@ button, input, select {
 
 .app-heading p {
   margin: 5px 0 0;
-  color: #8a938e;
-  font-size: 12px;
+  color: #727e77;
+  font-size: 14px;
 }
 
 .overview-cards {
@@ -1956,12 +2004,13 @@ button, input, select {
 }
 
 .round-icon {
-  width: 39px;
-  height: 39px;
-  border-radius: 11px;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
   display: grid;
   place-items: center;
   font-weight: 800;
+  font-size: 18px;
 }
 
 .round-icon.green {
@@ -1989,17 +2038,19 @@ button, input, select {
 }
 
 .overview-card small {
-  font-size: 8px;
-  color: #8c9691;
+  font-size: 13px;
+  font-weight: 600;
+  color: #727f78;
 }
 
 .overview-card strong {
-  font: 800 21px "Manrope", sans-serif;
+  font: 800 24px "Manrope", sans-serif;
   margin: 2px 0;
 }
 
 .overview-card em {
-  font-size: 8px;
+  font-size: 12px;
+  font-weight: 600;
   color: var(--green);
   font-style: normal;
 }
@@ -2019,7 +2070,7 @@ button, input, select {
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 16px;
-  padding: 19px;
+  padding: 22px;
 }
 
 .chart-card {
@@ -2034,18 +2085,19 @@ button, input, select {
 
 .app-card-head b {
   display: block;
-  font-size: 12px;
+  font-size: 16px;
+  font-weight: 800;
 }
 
 .app-card-head small {
   display: block;
-  font-size: 8px;
-  color: #969f9a;
+  font-size: 13px;
+  color: #7e8b85;
   margin-top: 4px;
 }
 
 .app-card-head a {
-  font-size: 9px;
+  font-size: 13px;
   color: var(--green);
   font-weight: 800;
   cursor: pointer;
@@ -2053,10 +2105,11 @@ button, input, select {
 
 .app-card-head select {
   border: 1px solid var(--line);
-  border-radius: 7px;
-  font-size: 8px;
-  padding: 5px;
+  border-radius: 8px;
+  font-size: 13px;
+  padding: 6px 10px;
   background: #fff;
+  color: var(--ink);
 }
 
 .large-chart {
@@ -2107,17 +2160,18 @@ button, input, select {
   gap: 18px;
   margin-top: 15px;
   align-items: center;
-  font-size: 9px;
-  color: #7e8883;
+  font-size: 13px;
+  color: #6a7670;
+  font-weight: 500;
 }
 
 .legend span i {
   display: inline-block;
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--green);
-  margin-right: 5px;
+  margin-right: 6px;
 }
 
 .legend span:nth-child(2) i {
@@ -2126,29 +2180,31 @@ button, input, select {
 
 .legend small {
   margin-left: auto;
-  color: #a1aaa5;
+  color: #8c9791;
+  font-size: 12px;
 }
 
 .item-list {
   display: grid;
-  gap: 2px;
-  margin-top: 12px;
+  gap: 4px;
+  margin-top: 14px;
 }
 
 .item-list > div {
   display: flex;
   align-items: center;
-  gap: 9px;
-  padding: 8px 0;
+  gap: 12px;
+  padding: 10px 0;
 }
 
 .food-round {
-  width: 30px;
-  height: 30px;
+  width: 36px;
+  height: 36px;
   background: #f4f7f4;
-  border-radius: 9px;
+  border-radius: 10px;
   display: grid;
   place-items: center;
+  font-size: 16px;
 }
 
 .item-list p {
@@ -2161,54 +2217,58 @@ button, input, select {
 }
 
 .item-list p b {
-  font-size: 9px;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .item-list p small {
-  font-size: 7px;
-  color: #929b96;
+  font-size: 12px;
+  color: #7b8882;
 }
 
 .todo-list {
   display: grid;
-  gap: 2px;
-  margin-top: 12px;
+  gap: 4px;
+  margin-top: 14px;
 }
 
 .todo-list label {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 0;
-  font-size: 10px;
+  gap: 10px;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 600;
   border-bottom: 1px solid #f0f2f0;
 }
 
 .todo-list input {
   accent-color: var(--green);
+  width: 16px;
+  height: 16px;
 }
 
 .todo-list em {
   margin-left: auto;
-  font-size: 7px;
-  color: #a0a8a4;
+  font-size: 12px;
+  color: #838e88;
   font-style: normal;
 }
 
 .category-list {
   display: grid;
-  gap: 10px;
-  margin-top: 15px;
+  gap: 12px;
+  margin-top: 16px;
 }
 
 .category-list > div {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 12px;
 }
 
 .category-list > div > span {
-  font-size: 17px;
+  font-size: 20px;
 }
 
 .category-list div div {
@@ -2220,16 +2280,18 @@ button, input, select {
 }
 
 .category-list b {
-  font-size: 9px;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .category-list small {
-  font-size: 7px;
-  color: #9aa29e;
+  font-size: 12px;
+  color: #7c8983;
 }
 
 .category-list strong {
-  font-size: 9px;
+  font-size: 14px;
+  font-weight: 700;
   color: var(--green);
 }
 
@@ -2243,28 +2305,32 @@ button, input, select {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .data-table th {
-  padding: 12px 14px;
+  padding: 14px 16px;
   background: var(--soft);
-  color: #5c6862;
+  color: #4b5751;
   font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   border-bottom: 1px solid var(--line);
 }
 
 .data-table td {
-  padding: 13px 14px;
+  padding: 14px 16px;
   border-bottom: 1px solid var(--line);
   color: var(--ink);
+  font-size: 14px;
 }
 
 .status-badge {
   display: inline-block;
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: 12px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
 }
 
@@ -2369,6 +2435,16 @@ button, input, select {
 }
 
 /* Responsive Media Queries */
+@media (min-width: 1440px) {
+  .container {
+    width: min(1380px, calc(100% - 64px));
+    max-width: 100%;
+  }
+  .nav-wrap {
+    gap: 32px;
+  }
+}
+
 @media (max-width: 1100px) {
   .container {
     width: min(940px, calc(100% - 40px));
@@ -2435,13 +2511,14 @@ button, input, select {
     margin-left: auto;
     z-index: 100;
   }
-  .menu-toggle i {
+  .menu-toggle i, .dash-menu-toggle i {
     display: block;
     width: 20px;
     height: 2px;
     background: var(--ink);
     border-radius: 2px;
     transition: all 0.25s ease;
+    pointer-events: none;
   }
   .dash-menu-toggle {
     display: flex !important;
@@ -2463,18 +2540,10 @@ button, input, select {
     background: var(--soft);
     border-color: var(--green);
   }
-  .dash-menu-toggle i {
-    display: block;
-    width: 20px;
-    height: 2px;
-    background: var(--ink);
-    border-radius: 2px;
-    transition: all 0.25s ease;
-  }
   .main-nav {
     display: none;
     position: absolute;
-    top: 68px;
+    top: 100%;
     left: 0;
     right: 0;
     background: #ffffff;
@@ -2484,7 +2553,7 @@ button, input, select {
     flex-direction: column;
     align-items: stretch;
     gap: 4px;
-    z-index: 99;
+    z-index: 999;
   }
   .main-nav.open {
     display: flex !important;
@@ -2623,6 +2692,20 @@ button, input, select {
   }
   .feature-grid, .value-grid, .service-grid {
     grid-template-columns: 1fr;
+  }
+  .service-card-img {
+    height: 230px;
+    margin: 16px 0 20px;
+  }
+  .service-card-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .showcase-image img {
+    height: 340px;
+    object-fit: cover;
   }
   .feature-card {
     min-height: auto;
